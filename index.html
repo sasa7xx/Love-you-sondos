@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سندس_Sondos ❤</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1f1a3a, #0f0c1b);
+            color: #fff;
+            font-family: 'Tahoma', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+        input[type="password"] {
+            width: 80%;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+        button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff758c;
+        }
+        .hidden {
+            display: none;
+        }
+        .counter-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .time-unit {
+            background: rgba(255, 75, 109, 0.2);
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 15px;
+        }
+        .message-box {
+            line-height: 1.8;
+            font-size: 15px;
+            margin: 15px 0;
+            white-space: pre-line;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- شاشة الباسورد -->
+        <div id="login-screen" class="card">
+            <h2>جاهزة يا سوسو؟ 🤔</h2>
+            <p style="font-size: 14px; color: #ffb3c6;">❤️ كل اللي هنا هيضل بيني وبينك طول العمر</p>
+            <input type="password" id="password-input" placeholder="اكتبي الباسورد هنا">
+            <br>
+            <button onclick="checkPassword()">يلا بسرعة افتحي 😉❤️</button>
+            <p id="error-msg" style="color: #ff4d6d; margin-top: 10px; display: none;">الباسورد خطأ يا روحي، جربي تاني (Love Sondos)!</p>
+        </div>
+
+        <!-- المحتوى الرئيسي -->
+        <div id="main-content" class="card hidden">
+            <h1 style="color: #ff4d6d; font-size: 22px;">سندس_Sondos ❤️✨</h1>
+            
+            <div class="message-box">
+                انا بحبك اوي اوي اوي اوي اوي اوي اوي اوي بحبك بعشقك بموت فيكي بعشقك كل حاجه فيكي بعشقك كل تفاصيلك الصغيره وي الكبيره
+                معاكي ببقا اسعد واحد في الدنيا ربنا يديمك ليا يا روحي يا حبيبت قلبي يا نعمة ربنا رزقني بيها 
+                بحبك ♥️S♥️
+                Sasa♥️I LOVE YOU ♥️Sondos♥️
+            </div>
+
+            <div class="message-box">
+                <strong>رسالة من القلب ليكِ يا سندس:</strong><br>
+                أنتِ أحمل حاجة حصلت في عمري كله، وجودك بيخلي الدنيا أهدوأجمل. ربنا ما يحرمني منك ولا من ضحكتك أبداً، ويارب يفضل عمرنا كله مع بعض لحد ما نبقى عجايز بنحكي لعيالنا عن حبنا. بحبك يا توأم روحي! ❤️
+            </div>
+
+            <h3 style="margin-top: 20px; font-size: 16px;">مدة حبنا من أول يوم قابلتك فيه (23/9/2026) ❤️:</h3>
+            <div class="counter-box" id="counter">
+                <!-- يتم تعبئتها بالجافاسكريبت -->
+            </div>
+        </div>
+    </div>
+
+    <!-- مشغل الأغنية مخفي من اليوتيوب -->
+    <div id="youtube-audio" style="display:none;"></div>
+
+    <script>
+        function checkPassword() {
+            const pass = document.getElementById('password-input').value;
+            // الباسورد المطلوب: Love Sondos
+            if (pass.trim().toLowerCase() === 'love sondos') {
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
+                
+                // تشغيل الأغنية تلقائياً عند فتح الصفحة
+                document.getElementById('youtube-audio').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/dYeEoyGTc_o?autoplay=1&loop=1&playlist=dYeEoyGTc_o" frameborder="0" allow="autoplay"></iframe>';
+                
+                startCounter();
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+
+        function startCounter() {
+            const startDate = new Date('2026-09-23T00:00:00');
+            
+            function update() {
+                const now = new Date();
+                const diff = now - startDate;
+
+                const seconds = Math.floor(diff / 1000) % 60;
+                const minutes = Math.floor(diff / (1000 * 60)) % 60;
+                const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+                document.getElementById('counter').innerHTML = `
+                    <div class="time-unit"><b>${days}</b><br>يوم حب وعشق</div>
+                    <div class="time-unit"><b>${hours}</b><br>ساعة سوا</div>
+                    <div class="time-unit"><b>${minutes}</b><br>دقيقة</div>
+                    <div class="time-unit"><b>${seconds}</b><br>ثانية بنبض ليكي</div>
+                `;
+            }
+            update();
+            setInterval(update, 1000);
+        }
+    </script>
+</body>
+</html>
